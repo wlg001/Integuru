@@ -4,7 +4,7 @@ An AI agent that generates integration code by reverse-engineering platforms' in
 
 ## What Integuru Does
 
-You provide a file containing all browser network requests, a file with the cookies and a prompt describing the action triggered in the browser. The agent outputs runnable Python code that hits the platform's internal endpoints to perform the desired action.
+You provide a file containing all browser network requests, a file with the cookies, and a prompt describing the action triggered in the browser. The agent outputs runnable Python code that hits the platform's internal endpoints to perform the desired action.
 
 ## How It Works
 
@@ -32,12 +32,12 @@ Let's assume we want to download utility bills:
 ## Features
 
 - Generate a dependency graph of requests to make the final request that performs the desired action.
-- Allow input variables (for example, choosing the YEAR to download a document from). This is currently only supported for the graph generation. Input variables for code generation coming soon!
+- Allow input variables (for example, choosing the YEAR to download a document from). This is currently only supported for graph generation. Input variables for code generation coming soon!
 - Generate code to hit all requests in the graph to perform the desired action.
 
 ## Setup
 
-1. Set up your OpenAI [API Keys](https://platform.openai.com/account/api-keys) and add the `OPENAI_API_KEY` environment variable. (We recommend you to use models that are at least as capable as OpenAI o1-mini. Models on par with OpenAI o1-preview are ideal.)
+1. Set up your OpenAI [API Keys](https://platform.openai.com/account/api-keys) and add the `OPENAI_API_KEY` environment variable. (We recommend using models that are at least as capable as OpenAI o1-mini. Models on par with OpenAI o1-preview are ideal.)
 2. Install Python requirements via poetry:
    ```
    poetry install
@@ -50,7 +50,7 @@ Let's assume we want to download utility bills:
    ```
    poetry run python create_har.py
    ```
-   Login to your platform and perform the desired action (such as downloading a utility bill).
+   Log into your platform and perform the desired action (such as downloading a utility bill).
 5. Run Integuru:
    ```
    poetry run python -m integuru --prompt "download utility bills"
@@ -59,7 +59,7 @@ Let's assume we want to download utility bills:
 
 ## Usage
 
-After setting up the project, you can use the Integuru to analyze and reverse-engineer API requests for various platforms. Simply provide the appropriate .har file and a prompt describing the action you want to analyze.
+After setting up the project, you can use Integuru to analyze and reverse-engineer API requests for external platforms. Simply provide the appropriate .har file and a prompt describing the action that you want to trigger.
 
 
 ```
@@ -78,6 +78,10 @@ Options:
                                   code
   --help                          Show this message and exit.
 ```
+
+## Demo
+
+[![Demo Video](https://img.youtube.com/vi/7OJ4w5BCpQ0/0.jpg)](https://www.youtube.com/watch?v=7OJ4w5BCpQ0)
 
 ## Contributing
 
