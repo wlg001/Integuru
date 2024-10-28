@@ -15,7 +15,6 @@ Let's assume we want to download utility bills:
    ```
    https://www.example.com/utility-bills?accountId=123&userId=456
    ```
-   
 2. It identifies parts of the request that depend on other requests.
    The above URL contains dynamic parts (accountId and userId) that need to be obtained from other requests.
    ```
@@ -55,23 +54,24 @@ Let's assume we want to download utility bills:
    ```
    poetry run python -m integuru --prompt "download utility bills"
    ```
-    You can also run it via Jupyter Notebook `main.ipynb`
+   You can also run it via Jupyter Notebook `main.ipynb`
 
 ## Usage
 
 After setting up the project, you can use Integuru to analyze and reverse-engineer API requests for external platforms. Simply provide the appropriate .har file and a prompt describing the action that you want to trigger.
-
 
 ```
 poetry run python -m integuru --help
 Usage: python -m integuru [OPTIONS]
 
 Options:
-  --model TEXT                    The LLM model to use
+  --model TEXT                    The LLM model to use (default is gpt-4o)
   --prompt TEXT                   The prompt for the model  [required]
-  --har-path TEXT                 The HAR file path
-  --cookie-path TEXT              The cookie file path
-  --max_steps INTEGER             The optional max_steps (default is 10)
+  --har-path TEXT                 The HAR file path (default is
+                                  ./network_requests.har)
+  --cookie-path TEXT              The cookie file path (default is
+                                  ./cookies.json)
+  --max_steps INTEGER             The max_steps (default is 20)
   --input_variables <TEXT TEXT>...
                                   Input variables in the format key value
   --generate-code                 Whether to generate the full integration
