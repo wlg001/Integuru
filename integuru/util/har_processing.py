@@ -1,7 +1,7 @@
 import json
 import os
 from urllib.parse import urlparse
-from integration_agent.models.request import Request
+from integuru.models.request import Request
 from typing import Tuple, Dict, Optional, Any, List
 
 excluded_keywords = (

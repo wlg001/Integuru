@@ -4,11 +4,11 @@ import os
 from datetime import datetime
 from typing import List, Dict, Any, Optional, Set
 
-from integration_agent.util.LLM import llm
-from integration_agent.models.DAGManager import DAGManager
-from integration_agent.util.har_processing import *
-from integration_agent.models.request import Request
-from integration_agent.models.agent_state import AgentState
+from integuru.util.LLM import llm
+from integuru.models.DAGManager import DAGManager
+from integuru.util.har_processing import *
+from integuru.models.request import Request
+from integuru.models.agent_state import AgentState
 
 class IntegrationAgent:
     ACTION_URL_KEY: str = "action_url"

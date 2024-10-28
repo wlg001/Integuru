@@ -1,6 +1,6 @@
 from typing import List
-from integration_agent.graph_builder import build_graph
-from integration_agent.util.LLM import llm
+from integuru.graph_builder import build_graph
+from integuru.util.LLM import llm
 
 agent = None
 

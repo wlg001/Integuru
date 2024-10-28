@@ -2,7 +2,7 @@ from platform import node
 import matplotlib.pyplot as plt
 import networkx as nx
 from typing import Dict, Set, Optional, Any
-from integration_agent.util.LLM import llm
+from integuru.util.LLM import llm
 import json
 from langchain_openai import ChatOpenAI
 from typing import List

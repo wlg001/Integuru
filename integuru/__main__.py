@@ -3,7 +3,7 @@ import time  # Add this import
 
 load_dotenv()
 
-from integration_agent.main import call_agent
+from integuru.main import call_agent
 import asyncio
 import click
 

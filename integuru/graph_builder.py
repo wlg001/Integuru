@@ -1,8 +1,8 @@
 from langgraph.graph import END, StateGraph
-from integration_agent.models.agent_state import AgentState
-from integration_agent.agent import IntegrationAgent
+from integuru.models.agent_state import AgentState
+from integuru.agent import IntegrationAgent
 from functools import partial  # To pass extra arguments to functions
-from integration_agent.util.print import print_dag, visualize_dag, print_dag_in_reverse
+from integuru.util.print import print_dag, visualize_dag, print_dag_in_reverse
 
 def check_end_condition(state, agent, to_generate_code):
     agent.dag_manager.detect_cycles()
