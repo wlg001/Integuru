@@ -23,13 +23,13 @@ class LLMSingleton:
     @classmethod
     def revert_to_default_model(cls):
         """Set the default model to use when no specific model is requested"""
+        print("Reverting to default model: ", cls._default_model, "Performance will be degraded as Integuru is using non O1 model")
         cls._alternate_model = cls._default_model
 
     @classmethod
     def switch_to_alternate_model(cls):
         """Returns a ChatOpenAI instance configured for o1-miniss"""
         # Create a new instance only if we don't have one yet
-        print("Switching to alternate model: ", cls._alternate_model)
         cls._instance = ChatOpenAI(model=cls._alternate_model, temperature=1)
 
         return cls._instance
