@@ -2,9 +2,13 @@
 
 An AI agent that generates integration code by reverse-engineering platforms' internal APIs.
 
+### Integuru in Action
+
+![Integuru in action](https://s1.gifyu.com/images/SODpY.gif)
+
 ## What Integuru Does
 
-You provide a file containing all browser network requests, a file with the cookies, and a prompt describing the action triggered in the browser. The agent outputs runnable Python code that hits the platform's internal endpoints to perform the desired action.
+You use ```create_har.py``` to generate a file containing all browser network requests, a file with the cookies, and write a prompt describing the action triggered in the browser. The agent outputs runnable Python code that hits the platform's internal endpoints to perform the desired action.
 
 ## How It Works
 
