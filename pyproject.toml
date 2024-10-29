@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "integrationagent"
+name = "integuru"
 version = "0.1.0"
 description = ""
 authors = ["alanalanlu <alanlu1999@gmail.com>"]
