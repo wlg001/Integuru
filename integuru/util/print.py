@@ -6,6 +6,7 @@ from integuru.util.LLM import llm
 import json
 from langchain_openai import ChatOpenAI
 from typing import List
+from openai import NotFoundError  # Add this import
 
 def print_dag(
     graph: nx.DiGraph,
@@ -132,8 +133,7 @@ def find_json_path(json_obj, target_value, current_path=None):
     
     return results
 
-# Strongly recommend to use o1-mini or o1-preview for code generation
-o1_llm = ChatOpenAI(model="o1-mini", temperature=1)
+
 
 def generate_code(node_id: str, graph: nx.DiGraph) -> str:
     """
@@ -245,7 +245,14 @@ def generate_code(node_id: str, graph: nx.DiGraph) -> str:
     """
 
     # Make the API call using o1_llm
-    response = o1_llm.invoke(prompt)
+
+    llm_model = llm.switch_to_alternate_model()
+    try:
+        response = llm_model.invoke(prompt)
+    except Exception as e:
+        print("Switching to default model")
+        llm.revert_to_default_model()
+        response = llm.switch_to_alternate_model().invoke(prompt)
 
     # Extract the generated code from the response
     code = response.content.strip()
@@ -287,8 +294,14 @@ def aggregate_functions(txt_path, output_path):
     """
 
     # Get the response from ChatGPT
-    response = o1_llm.invoke(prompt)
 
+    llm_model = llm.switch_to_alternate_model()
+    try:
+        response = llm_model.invoke(prompt)
+    except Exception as e:
+        print("Switching to default model")
+        llm.revert_to_default_model()
+        response = llm.switch_to_alternate_model().invoke(prompt)
     # Extract the generated code
     generated_code = response.content.strip()
 
@@ -330,9 +343,11 @@ def print_dag_in_reverse(graph: nx.DiGraph, max_depth: Optional[int] = None, to_
     """
     if to_generate_code:
         print("--------------Generating code------------")
+
     generated_code = ""
 
     dynamic_parts_list = []
+
     def _print_dag_recursive(
         current_node_id: str,
         prefix: str = "",

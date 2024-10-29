@@ -14,7 +14,8 @@ async def call_agent(
     to_generate_code: bool = False,
 ):  
     
-    llm.set_model(model)
+    llm.set_default_model(model)
+
     global agent
     graph, agent = build_graph(prompt, har_file_path, cookie_path, to_generate_code)
     event_stream = graph.astream(
