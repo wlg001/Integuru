@@ -40,7 +40,7 @@ Let's assume we want to download utility bills:
 
 ## Setup
 
-1. Set up your OpenAI [API Keys](https://platform.openai.com/account/api-keys) and add the `OPENAI_API_KEY` environment variable. (We recommend using models that are at least as capable as OpenAI o1-mini. Models on par with OpenAI o1-preview are ideal.)
+1. Set up your OpenAI [API Keys](https://platform.openai.com/account/api-keys) and add the `OPENAI_API_KEY` environment variable. (We recommend your open ai account to have models that are at least as capable as OpenAI o1-mini. Models on par with OpenAI o1-preview are ideal.)
 2. Install Python requirements via poetry:
    ```
    poetry install
@@ -56,9 +56,11 @@ Let's assume we want to download utility bills:
    Log into your platform and perform the desired action (such as downloading a utility bill).
 5. Run Integuru:
    ```
-   poetry run python -m integuru --prompt "download utility bills"
+   poetry run python -m integuru --prompt "download utility bills" --model gpt-4o
    ```
    You can also run it via Jupyter Notebook `main.ipynb`
+
+   Recommended to use gpt-4o as the model as it support function calling. Integuru will automatically switch to o1-preview for code generation.
 
 ## Usage
 
