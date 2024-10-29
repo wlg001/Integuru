@@ -2,9 +2,9 @@
 
 An AI agent that generates integration code by reverse-engineering platforms' internal APIs.
 
-### Integuru in Action
+## Integuru in Action
 
-![Integuru in action](https://s1.gifyu.com/images/SODpY.gif)
+![Integuru in action](./integuru_demo.gif)
 
 ## What Integuru Does
 
