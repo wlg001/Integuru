@@ -9,6 +9,33 @@ excluded_keywords = (
     "taboola",
     "datadog",
     "sentry",
+    # "relic"
+)
+
+excluded_header_keywords = (
+    "cookie",
+    "sec-",
+    "accept",
+    "user-agent",
+    "referer",
+    "relic",
+    "sentry",
+    "datadog",
+    "amplitude",
+    "mixpanel",
+    "segment",
+    "heap",
+    "hotjar",
+    "fullstory",
+    "pendo",
+    "optimizely",
+    "adobe",
+    "analytics",
+    "tracking",
+    "telemetry",
+    "clarity",  # Microsoft Clarity
+    "matomo",
+    "plausible",
 )
 
 def format_request(har_request: Dict[str, Any]) -> Request:
@@ -18,10 +45,12 @@ def format_request(har_request: Dict[str, Any]) -> Request:
     method = har_request.get("method", "GET")
     url = har_request.get("url", "")
 
-    # Store headers as a dictionary
+    # Store headers as a dictionary, excluding headers containing excluded keywords
     headers = {
         header.get("name", ""): header.get("value", "")
         for header in har_request.get("headers", [])
+        if not any(keyword.lower() in header.get("name", "").lower() 
+                  for keyword in excluded_header_keywords)
     }
 
     query_params_list = har_request.get("queryString", [])
