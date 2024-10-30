@@ -24,7 +24,7 @@ Let's assume we want to download utility bills:
    ```
    accountId=123 userId=456
    ```
-3. It finds the requests that provide these parts and makes the download request dependent on them.
+3. It finds the requests that provide these parts and makes the download request dependent on them. It also attaches these requests to the original request to build out a dependency graph.
    ```
    GET https://www.example.com/get_account_id
    GET https://www.example.com/get_user_id
