@@ -60,7 +60,7 @@ Let's assume we want to download utility bills:
    ```
    You can also run it via Jupyter Notebook `main.ipynb`
 
-   Recommended to use gpt-4o as the model as it support function calling. Integuru will automatically switch to o1-preview for code generation.
+   **Recommended to use gpt-4o as the model for graph generation as it supports function calling. Integuru will automatically switch to o1-preview for code generation if available in the user's OpenAI account.** ⚠️ **Note: o1-preview does not support function calls.**
 
 ## Usage
 
