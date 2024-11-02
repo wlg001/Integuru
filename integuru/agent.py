@@ -120,6 +120,7 @@ class IntegrationAgent:
         - The key of the input variable is a description of the variable.
         - The value is the value that should closely match the value in the cURL command. No substitutions.
         - test
+        - test 2
 
         """
 
